@@ -8,31 +8,27 @@ export const pixelOption = [
   },
   {
     value: 'assignment',
-    label: '测试',
-  },
-  {
-    value: 'loop',
-    label: '测试',
+    label: '节点1-1',
   },
   {
     value: 'decision',
-    label: '测试',
+    label: '节点1-2',
   },
   {
     value: 'startParallel',
-    label: '测试',
+    label: '节点1-3',
   },
   {
     value: 'endParallel',
-    label: '测试',
+    label: '节点1-4',
   },
   {
     value: 'machineLearning',
-    label: '测试',
+    label: '节点2-1',
   },
   {
     value: 'deepLearning',
-    label: '测试',
+    label: '节点2-2',
   },
   {
     value: 'myBezier',
