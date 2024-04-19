@@ -2,6 +2,13 @@
 
 🎉 logicflow+vue3+elementplus的流程编排
 
+<div>
+  <img width="100%" src="./img/view1.jpg">
+</div>
+<div>
+  <img width="100%" src="./img/view2.jpg">
+</div>
+
 
 
 ## 功能亮点
@@ -30,9 +37,17 @@ npm run dev
 
 
 
+## 鸣谢
+
+- https://github.com/didi/LogicFlow
+
+- https://site.logic-flow.cn/examples
+
+
+
 ## 项目链接
 
-https://github.com/xoobom/logicflow-vue3
+- https://github.com/xoobom/logicflow-vue3
 
 
 
