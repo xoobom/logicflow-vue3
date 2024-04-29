@@ -1,3 +1,8 @@
+<div align="center">
+  <img width="130" height="130" src="./src/assets/images/logo.jpg">
+</div>
+
+
 ## logicflow-vue3
 
 🎉 logicflow+vue3+elementplus的流程编排
@@ -48,6 +53,19 @@ npm run dev
 ## 项目链接
 
 - https://github.com/xoobom/logicflow-vue3
+
+  
+
+
+## 沟通交流
+
+### QQ群
+
+群号：692252235     
+
+<div>
+  <img width="250" src="./img/qq-group.jpg">
+</div>
 
 
 
