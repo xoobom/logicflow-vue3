@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import design from "./views/design/index.vue";
+import design from './views/design/index.vue';
 </script>
 
-<style scoped>
-</style>
+<style scoped lang="scss"></style>
