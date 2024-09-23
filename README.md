@@ -38,7 +38,13 @@ npm run dev
 
 ## 项目集成
 
-把src/views/design目录复制到自己项目里即可
+- 下载logicflow依赖
+
+"@logicflow/core": "^1.2.26",
+
+"@logicflow/extension": "^1.2.26"
+
+- 把src/views/design目录复制到自己项目里即可
 
 
 
