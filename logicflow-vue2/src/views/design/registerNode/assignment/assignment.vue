@@ -1,27 +1,24 @@
 <template>
   <div class="node-title">
     <span class="node-icon">
-      <i class="fa fa-server"></i>
+      <svg-icon icon-class="assignment" />
     </span>
     <span class="node-name"><span ref="myNode"></span></span>
   </div>
 </template>
 
 <script>
+import variables from '@/styles/variables.scss';
 export default {
   props: {
     properties: Object,
   },
-  methods: {
-    done(type) {
-      this.$emit('select-button', type);
-    },
-  },
+  methods: {},
   mounted() {
     if (this.properties.frontend_status) {
-      let borderColor = '#1D70F5';
+      let borderColor = variables.dragNodeBorderColor;
       if (this.properties.frontend_status == '0') {
-        borderColor = '#D70016';
+        borderColor = variables.errorColor;
       }
       this.$refs.myNode.style.border = `1px solid ${borderColor}`; //stroke边框
     }
@@ -30,8 +27,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/variables.scss';
 .node-icon {
-  color: #1d70f5;
-  font-size: 16px;
+  color: $--color-primary;
+  font-size: 19px;
 }
 </style>

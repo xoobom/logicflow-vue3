@@ -63,7 +63,7 @@ export default function registerConnect(lf) {
       }
       initNodeData(data) {
         super.initNodeData(data);
-        const width = 120;
+        const width = 140;
         const height = 40;
         this.width = width;
         this.height = height;

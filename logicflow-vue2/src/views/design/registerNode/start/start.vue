@@ -1,7 +1,7 @@
 <template>
   <div ref="myNode" class="node-title">
     <span class="node-icon">
-      <i class="fa fa-play-circle"></i>
+      <svg-icon icon-class="start" />
     </span>
     <span class="node-name"><span></span></span>
   </div>
@@ -13,19 +13,14 @@ export default {
   props: {
     properties: Object,
   },
-  methods: {
-    done(type) {
-      this.$emit('select-button', type);
-    },
-  },
+  methods: {},
   mounted() {
-    if (this.properties.frontend_status) {
-      let borderColor = variables.dragNodeBorderColor;
-      if (this.properties.frontend_status == '0') {
-        borderColor = variables.errorColor;
-      }
-      this.$refs.myNode.style.border = `1px solid ${borderColor}`; //stroke边框
+    let borderColor = variables.dragNodeBorderColor;
+    
+    if (this.properties.frontend_status == '0') {
+      borderColor = variables.dangerColor;
     }
+    this.$refs.myNode.style.border = `1px solid ${borderColor}`; //stroke边框
   },
 };
 </script>
@@ -33,5 +28,6 @@ export default {
 <style scoped lang="scss">
 .node-icon {
   color: #6bd452;
+  font-size: 17px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="查看JSON" :visible.sync="showViewJson" width="700px" @closed="closed">
+    <el-dialog title="查看JSON" :visible.sync="showViewJson" width="700px" top="15px" append-to-body @closed="closed">
       <div class="json-container">
         <vueJsonPretty :data="graphDataJson" :deep="10" :showLine="false" :virtual="true" :height="500" />
         <div class="json-copy">

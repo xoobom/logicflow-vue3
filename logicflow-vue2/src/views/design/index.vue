@@ -11,8 +11,7 @@
       <!-- 画布 -->
       <div id="LF-view" ref="container"></div>
       <!-- 属性面板 -->
-      <PropertyDialog v-if="showAttribute" :title="title" :nodeData="nodeData" :flowDetail="flowDetail" :lf="lf" @closed="showAttribute = false">
-      </PropertyDialog>
+      <PropertyDialog v-if="showAttribute" :title="title" :nodeData="nodeData" :flowDetail="flowDetail" :lf="lf" @closed="showAttribute = false"> </PropertyDialog>
     </div>
   </div>
 </template>
@@ -29,10 +28,10 @@ import decision from './registerNode/decision/decision.js';
 import startParallel from './registerNode/startParallel/startParallel.js';
 import endParallel from './registerNode/endParallel/endParallel.js';
 import variables from '@/styles/variables.scss';
-const PropertyDialog = () => import('./PropertySetting/PropertyDialog.vue'); //懒加载
-const NodePanel = () => import('./LFComponents/NodePanel.vue'); //懒加载
-const Control = () => import('./LFComponents/Control.vue'); //懒加载
-const top = () => import('./LFComponents/top.vue'); //懒加载
+import PropertyDialog from './PropertySetting/PropertyDialog.vue';
+import NodePanel from './LFComponents/NodePanel.vue';
+import Control from './LFComponents/Control.vue';
+import top from './LFComponents/top.vue';
 
 export default {
   name: 'LF',
@@ -87,6 +86,8 @@ export default {
     };
   },
   mounted() {
+    console.log(variables);
+    
     this.$_initLf();
   },
   methods: {
@@ -153,129 +154,202 @@ export default {
     },
     $_render() {
       let flowJson = {
-        'flowJson': {
-          'nodes': [
-            {
-              'id': '1711093934582531471',
-              'type': 'start',
-              'x': 570,
-              'y': 60,
-              'properties': {
-                'name': '开始',
-                'variables': [
-                  {
-                    'id': '1711093950732881898',
-                    'name': 'a',
-                    'dataType': 'string',
-                    'isArray': false,
-                    'defaultValue': null,
-                    'desc': '',
-                    'extType': '',
-                  },
-                ],
-                'inputVariables': [
-                  {
-                    'id': '1711093950732881898',
-                    'name': 'a',
-                  },
-                ],
-                'outputVariables': [
-                  {
-                    'id': '1711093950732881898',
-                    'name': 'a',
-                  },
-                ],
-                'structs': [],
-                'frontend_status': '1',
-                'desc': '',
-              },
-              'text': {
-                'x': 570,
-                'y': 60,
-                'value': '开始',
-              },
+        nodes: [
+          {
+            id: '1706150553091901403',
+            type: 'start',
+            x: 660,
+            y: 70,
+            properties: {
+              variables: [],
+              structs: [],
+              frontend_status: '0',
+              name: '开始',
+              outputVariables: [
+                {
+                  name: 'result',
+                  id: '1709022828123856947',
+                },
+              ],
+              inputVariables: [
+                {
+                  id: '1711610228272357459',
+                  name: 'filesInfo',
+                },
+              ],
+              desc: '',
             },
-            {
-              'id': '1711093939851660406',
-              'type': 'assignment',
-              'x': 500,
-              'y': 170,
-              'properties': {
-                'name': '向量召回',
-                'desc': '',
-                'frontend_status': '1',
-                'assignList': [
-                  {
-                    'field': 'a',
-                    'operator': '=',
-                    'value': 'a',
-                  },
-                ],
-              },
-              'text': {
-                'x': 500,
-                'y': 170,
-                'value': '向量召回',
-              },
+            text: {
+              x: 660,
+              y: 70,
+              value: '开始',
             },
+          },
+          {
+            id: '1713515657342573573',
+            type: 'assignment',
+            x: 730,
+            y: 260,
+            properties: {
+              name: '节点1-1',
+              desc: '',
+              frontend_status: '1',
+            },
+            text: {
+              x: 730,
+              y: 260,
+              value: '节点1-1',
+            },
+          },
+          {
+            id: '1713515658627306263',
+            type: 'startParallel',
+            x: 500,
+            y: 250,
+            properties: {
+              name: '节点1-3',
+              desc: '',
+              frontend_status: '0',
+            },
+            text: {
+              x: 500,
+              y: 250,
+              value: '节点1-3',
+            },
+          },
+        ],
+        edges: [
+          {
+            id: '1713515662842706019',
+            type: 'myBezier',
+            sourceNodeId: '1706150553091901403',
+            targetNodeId: '1713515658627306263',
+            startPoint: {
+              x: 660,
+              y: 90,
+            },
+            endPoint: {
+              x: 500,
+              y: 230,
+            },
+            properties: {
+              edgeType: 'start',
+            },
+            pointsList: [
+              {
+                x: 660,
+                y: 90,
+              },
+              {
+                x: 660,
+                y: 190,
+              },
+              {
+                x: 500,
+                y: 130,
+              },
+              {
+                x: 500,
+                y: 230,
+              },
+            ],
+          },
+          {
+            id: '1713515665489870839',
+            type: 'myBezier',
+            sourceNodeId: '1706150553091901403',
+            targetNodeId: '1713515657342573573',
+            startPoint: {
+              x: 660,
+              y: 90,
+            },
+            endPoint: {
+              x: 730,
+              y: 240,
+            },
+            properties: {
+              edgeType: 'start',
+            },
+            pointsList: [
+              {
+                x: 660,
+                y: 90,
+              },
+              {
+                x: 660,
+                y: 190,
+              },
+              {
+                x: 730,
+                y: 140,
+              },
+              {
+                x: 730,
+                y: 240,
+              },
+            ],
+          },
+        ],
+      };
+      this.flowDetail = {
+        flowName: '测试',
+        flowId: '1',
+        flowJson: {
+          nodes: [
+            {
+              id: '1706150553091901403',
+              type: 'start',
+              x: 660,
+              y: 70,
+              properties: {
+                variables: [],
+                structs: [],
+                frontend_status: '0',
+                name: '开始',
+                outputVariables: [{ name: 'result', id: '1709022828123856947' }],
+                inputVariables: [{ id: '1711610228272357459', name: 'filesInfo' }],
+                desc: '',
+              },
+              text: { x: 660, y: 70, value: '开始' },
+            },
+            { id: '1713515657342573573', type: 'assignment', x: 730, y: 260, properties: { name: '节点1-1', desc: '', frontend_status: '1' }, text: { x: 730, y: 260, value: '节点1-1' } },
+            { id: '1713515658627306263', type: 'startParallel', x: 500, y: 250, properties: { name: '节点1-3', desc: '', frontend_status: '0' }, text: { x: 500, y: 250, value: '节点1-3' } },
           ],
-          'edges': [
+          edges: [
             {
-              'id': '1711093944702675531',
-              'type': 'myBezier',
-              'sourceNodeId': '1711093934582531471',
-              'targetNodeId': '1711093939851660406',
-              'startPoint': {
-                'x': 570,
-                'y': 80,
-              },
-              'endPoint': {
-                'x': 500,
-                'y': 150,
-              },
-              'properties': {
-                'edgeType': 'start',
-              },
-              'pointsList': [
-                {
-                  'x': 570,
-                  'y': 80,
-                },
-                {
-                  'x': 570,
-                  'y': 180,
-                },
-                {
-                  'x': 500,
-                  'y': 50,
-                },
-                {
-                  'x': 500,
-                  'y': 150,
-                },
+              id: '1713515662842706019',
+              type: 'myBezier',
+              sourceNodeId: '1706150553091901403',
+              targetNodeId: '1713515658627306263',
+              startPoint: { x: 660, y: 90 },
+              endPoint: { x: 500, y: 230 },
+              properties: { edgeType: 'start' },
+              pointsList: [
+                { x: 660, y: 90 },
+                { x: 660, y: 190 },
+                { x: 500, y: 130 },
+                { x: 500, y: 230 },
+              ],
+            },
+            {
+              id: '1713515665489870839',
+              type: 'myBezier',
+              sourceNodeId: '1706150553091901403',
+              targetNodeId: '1713515657342573573',
+              startPoint: { x: 660, y: 90 },
+              endPoint: { x: 730, y: 240 },
+              properties: { edgeType: 'start' },
+              pointsList: [
+                { x: 660, y: 90 },
+                { x: 660, y: 190 },
+                { x: 730, y: 140 },
+                { x: 730, y: 240 },
               ],
             },
           ],
         },
-        'flowId': '8495158923089789043',
-        'flowName': '的人',
       };
-      this.flowDetail = {
-        'id': '8495158923089789043',
-        'isDel': '0',
-        'created': '2024-03-20 14:19:33',
-        'updated': '2024-03-22 15:52:49',
-        'createBy': 'admin',
-        'updateBy': 'admin',
-        'flowName': '的人',
-        'flowType': 1,
-        'flowJson': '{"flowJson":{"nodes":[{"id":"1711093934582531471","type":"start","x":570,"y":60,"properties":{"name":"开始","variables":[{"id":"1711093950732881898","name":"a","dataType":"string","isArray":false,"defaultValue":null,"desc":"","extType":""}],"inputVariables":[{"id":"1711093950732881898","name":"a"}],"outputVariables":[{"id":"1711093950732881898","name":"a"}],"structs":[],"frontend_status":"1","desc":""},"text":{"x":570,"y":60,"value":"开始"}},{"id":"1711093939851660406","type":"assignment","x":500,"y":170,"properties":{"name":"向量召回","desc":"","frontend_status":"1","assignList":[{"field":"a","operator":"=","value":"a"}]},"text":{"x":500,"y":170,"value":"向量召回"}}],"edges":[{"id":"1711093944702675531","type":"myBezier","sourceNodeId":"1711093934582531471","targetNodeId":"1711093939851660406","startPoint":{"x":570,"y":80},"endPoint":{"x":500,"y":150},"properties":{"edgeType":"start"},"pointsList":[{"x":570,"y":80},{"x":570,"y":180},{"x":500,"y":50},{"x":500,"y":150}]}]},"flowId":"8495158923089789043","flowName":"的人"}',
-        'desc': '',
-        'status': 1,
-        'groupId': '8488695340906430596',
-        'deptName': '测试',
-      };
-      this.lf.render(flowJson.flowJson); //回显
+      this.lf.render(flowJson); //回显
       this.$_LfEvent();
     },
     $_getData() {
@@ -317,8 +391,7 @@ export default {
         this.setEdgeType(data);
       });
 
-      this.lf.on('edge:delete', ({ data }) => {
-      });
+      this.lf.on('edge:delete', ({ data }) => {});
     },
     //设置边类型
     setEdgeType(data) {
@@ -376,7 +449,8 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
+@import '@/styles/variables.scss';
 .logic-flow-view {
   height: 85vh;
   position: relative;
@@ -440,6 +514,27 @@ export default {
 }
 .node-name > span {
   border: none !important;
+}
+
+//logicflow小地图
+.lf-mini-map {
+  border-radius: $appRadius;
+  border: none !important;
+  box-shadow: 3px 0 10px 1px rgb(228, 224, 219);
+}
+
+.lf-mini-map-header {
+  border: none !important;
+  font-size: 13px;
+  height: 24px !important;
+  line-height: 24px !important;
+  // color: #fff;
+  background-color: #ecf5ff !important;
+  background-image: none !important;
+}
+
+.lf-mini-map-close {
+  top: 2px !important;
 }
 
 @keyframes lf_animate_dash {

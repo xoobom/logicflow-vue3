@@ -250,6 +250,7 @@ export default {
 .custom-tree-node {
   .drag-label {
     user-select: none; //禁止选择文本
+    font-size: 14px;
     @include ellipsis(160px);
   }
 

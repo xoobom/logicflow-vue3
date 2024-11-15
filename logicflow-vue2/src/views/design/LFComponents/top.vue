@@ -1,8 +1,14 @@
 <template>
   <div class="mb15">
-    <el-button type="primary" plain @click="viewJsonFunc"> 查看JSON </el-button>
-    <el-button v-if="flowDetail.status != '2'" type="primary" :loading="saveLoading" @click="saveFunc"> 保存 </el-button>
-
+    <div class="top">
+      <div>
+        <el-button type="primary" plain @click="viewJsonFunc"> 查看JSON </el-button>
+        <el-button v-if="flowDetail.status != '2'" type="primary" :loading="saveLoading" @click="saveFunc"> 保存 </el-button>
+      </div>
+      <div class="top">
+        <svg-icon icon-class="logo" class="logo" @click="logoClick" />
+      </div>
+    </div>
     <!-- 查看JSON -->
     <viewJson v-if="showViewJson" :graphData="graphData" @closed="showViewJson = false"></viewJson>
   </div>
@@ -57,6 +63,9 @@ export default {
     }
   },
   methods: {
+    logoClick() {
+      window.location.href = 'https://github.com/xoobom/logicflow-vue3';
+    },
     //保存
     saveFunc() {},
     //调试
@@ -92,4 +101,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.logo {
+  width: 150px;
+  height: 40px;
+  padding: 5px 10px;
+  background-color: var(--el-color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
