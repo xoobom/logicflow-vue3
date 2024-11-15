@@ -1,0 +1,18 @@
+// 多行文本超出显示省略号
+@mixin n-ellipsis($n) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+// 单行文本显示超出省略号
+@mixin ellipsis($w) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: $w;
+  display: inline-block;
+}
