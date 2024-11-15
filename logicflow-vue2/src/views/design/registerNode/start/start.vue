@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import variables from '@/styles/variables.scss';
+import variables from '@/styles/variables.module.scss';
 export default {
   props: {
     properties: Object,

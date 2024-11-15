@@ -6,12 +6,6 @@ function resolve(dir) {
 
 module.exports = defineConfig({
   transpileDependencies: true,
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: [path.resolve(__dirname, 'src/styles/variables.scss'), path.resolve(__dirname, 'src/styles/minx.scss')],
-    },
-  },
   configureWebpack: {
     resolve: {
       alias: {

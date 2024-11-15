@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <div ref="myNode" class="node-title">
-      <span class="node-icon">
-        <svg-icon icon-class="startParallel" />
-      </span>
-    </div>
+  <div ref="myNode" class="node-title">
+    <span class="node-icon">
+      <svg-icon icon-class="deepLearning" />
+    </span>
+    <span class="node-name"><span></span></span>
   </div>
 </template>
 
@@ -14,10 +13,11 @@ export default {
   props: {
     properties: Object,
   },
-  data() {
-    return {};
+  methods: {
+    done(type) {
+      this.$emit('select-button', type);
+    },
   },
-  methods: {},
   mounted() {
     if (this.properties.frontend_status) {
       let borderColor = variables.dragNodeBorderColor;

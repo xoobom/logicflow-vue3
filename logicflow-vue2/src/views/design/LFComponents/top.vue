@@ -1,5 +1,5 @@
 <template>
-  <div class="mb15">
+  <div class="mb10">
     <div class="top">
       <div>
         <el-button type="primary" plain @click="viewJsonFunc"> 查看JSON </el-button>
@@ -102,16 +102,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/variables.module.scss';
 .top {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
 }
 .logo {
-  width: 150px;
-  height: 40px;
+  width: 150px !important;
+  height: 40px !important;
   padding: 5px 10px;
-  background-color: var(--el-color-primary);
+  background-color: $--color-primary;
   border-radius: 6px;
   cursor: pointer;
 }

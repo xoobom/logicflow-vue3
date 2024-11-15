@@ -107,7 +107,7 @@ export default {
     //拖拽
     async mousedownFunc(val) {
       // console.log(val);
-      let typeList = ['subService', 'assignment', 'decision', 'startParallel', 'endParallel', 'machineLearning'];
+      let typeList = ['subService', 'assignment', 'decision', 'startParallel', 'endParallel', 'machineLearning', 'deepLearning'];
       if (typeList.includes(val.type)) {
         this.dragRow = val;
         this.randomNumber = randomNumber();
@@ -220,7 +220,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
-@import '@/styles/variables.scss';
+@import '@/styles/variables.module.scss';
 .node-panel {
   position: absolute;
   /* top: 50px; */

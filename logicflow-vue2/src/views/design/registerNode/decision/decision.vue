@@ -1,23 +1,19 @@
 <template>
-  <div ref="myNode" class="node-title">
+  <div class="node-title">
     <span class="node-icon">
-      <i class="fa fa-anchor decision" />
+      <svg-icon icon-class="decision" />
     </span>
-    <span class="node-name"><span></span></span>
+    <span class="node-name"><span ref="myNode"></span></span>
   </div>
 </template>
 
 <script>
-import variables from '@/styles/variables.scss';
+import variables from '@/styles/variables.module.scss';
 export default {
   props: {
     properties: Object,
   },
-  methods: {
-    done(type) {
-      this.$emit('select-button', type);
-    },
-  },
+  methods: {},
   mounted() {
     if (this.properties.frontend_status) {
       let borderColor = variables.dragNodeBorderColor;
@@ -32,7 +28,7 @@ export default {
 
 <style scoped lang="scss">
 .node-icon {
-  font-size: 16px;
-  color: #2dd5fc;
+  color: #fba905;
+  font-size: 19px;
 }
 </style>

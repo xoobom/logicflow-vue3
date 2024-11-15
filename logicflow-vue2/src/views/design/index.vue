@@ -24,10 +24,11 @@ import start from './registerNode/start/start.js';
 import assignment from './registerNode/assignment/assignment.js';
 import registerBezier from './registerEdge/registerBezier';
 import machineLearning from './registerNode/machineLearning/machineLearning.js';
+import deepLearning from './registerNode/deepLearning/deepLearning.js';
 import decision from './registerNode/decision/decision.js';
 import startParallel from './registerNode/startParallel/startParallel.js';
 import endParallel from './registerNode/endParallel/endParallel.js';
-import variables from '@/styles/variables.scss';
+import variables from '@/styles/variables.module.scss';
 import PropertyDialog from './PropertySetting/PropertyDialog.vue';
 import NodePanel from './LFComponents/NodePanel.vue';
 import Control from './LFComponents/Control.vue';
@@ -149,6 +150,7 @@ export default {
       startParallel(this.lf);
       endParallel(this.lf);
       machineLearning(this.lf);
+      deepLearning(this.lf);
       this.lf.register(registerBezier);
       this.$_render();
     },
@@ -450,7 +452,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import '@/styles/variables.scss';
+@import '@/styles/variables.module.scss';
 .logic-flow-view {
   height: 85vh;
   position: relative;

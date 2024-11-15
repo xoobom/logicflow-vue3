@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import variables from '@/styles/variables.scss';
+import variables from '@/styles/variables.module.scss';
 export default {
   props: {
     properties: Object,
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@import '@/styles/variables.module.scss';
 .node-icon {
   color: $--color-primary;
   font-size: 19px;
