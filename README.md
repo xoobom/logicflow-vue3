@@ -5,7 +5,7 @@
 
 ## logicflow-vue3
 
-🎉 logicflow+vue3+elementplus的流程编排
+🎉 logicflow+vue3+elementplus的流程编排。vue2版本在vue2分支。
 
 <div>
   <img width="100%" src="./img/view1.jpg">
