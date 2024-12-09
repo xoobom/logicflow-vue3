@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import assignment from './assignment.vue';
 import { randomNumber } from '@/utils/index.js';
-let nodeNameZh = '向量召回';
+let nodeNameZh = '';
 
 export default function registerConnect(lf) {
   lf.register('assignment', ({ HtmlNode, HtmlNodeModel }) => {
@@ -75,57 +75,37 @@ export default function registerConnect(lf) {
         this.height = height;
         this.radius = 50;
         this.targetRules = [
-          {
-            message: `【${nodeNameZh}】只允许一个输入`,
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeIncomingEdge(targetNode.id);
-              if (edges.length >= 1) {
-                return false;
-              } else {
-                return true;
-              }
-            },
-          },
-          {
-            message: '输入不允许连接输入',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return sourceAnchor.type === 'outgoing';
-            },
-          },
           // {
-          //   message: `【${nodeNameZh}】输入可连接开始、向量召回、swing推荐、FM训练、原生服务、连接器`,
-          //   validate: (sourceNode, targetNode, _sourceAnchor, targetAnchor) => {
-          //     if (['start', 'assignment', 'startParallel', 'endParallel', 'machineLearning', 'deepLearning', 'restService'].includes(sourceNode.type)) {
-          //       return true;
-          //     } else {
+          //   message: `【${nodeNameZh}】只允许一个输入`,
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeIncomingEdge(targetNode.id);
+          //     if (edges.length >= 1) {
           //       return false;
+          //     } else {
+          //       return true;
           //     }
+          //   },
+          // },
+          // {
+          //   message: '输入不允许连接输入',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return sourceAnchor.type === 'outgoing';
           //   },
           // },
         ];
         this.sourceRules = [
-          {
-            message: `【${nodeNameZh}】只允许1个输出`,
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
-              if (edges.length >= 1) return false;
-              return true;
-            },
-          },
-          {
-            message: '输出不允许连接输出',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return targetAnchor.type === 'incomming';
-            },
-          },
           // {
-          //   message: `【${nodeNameZh}】输出可连接向量召回、原生服务、连接器`,
-          //   validate: (sourceNode, targetNode, _sourceAnchor, targetAnchor) => {
-          //     if (['assignment', 'machineLearning', 'deepLearning', 'restService'].includes(targetNode.type)) {
-          //       return true;
-          //     } else {
-          //       return false;
-          //     }
+          //   message: `【${nodeNameZh}】只允许1个输出`,
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
+          //     if (edges.length >= 1) return false;
+          //     return true;
+          //   },
+          // },
+          // {
+          //   message: '输出不允许连接输出',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return targetAnchor.type === 'incomming';
           //   },
           // },
         ];

@@ -62,31 +62,21 @@ export default function registerConnect(lf) {
         this.height = height;
         this.radius = 50;
         this.sourceRules = [
-          {
-            message: '【开始】只允许1个输出',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
-              if (edges.length >= 1) {
-                return false;
-              } else {
-                return true;
-              }
-            },
-          },
-          {
-            message: '输出不允许连接输出',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              if (targetAnchor.type === 'incomming') {
-                return true;
-              } else {
-                return false;
-              }
-            },
-          },
           // {
-          //   message: `【${nodeNameZh}】输出可连接向量召回、协同过滤、swing推荐、原生服务和连接器`,
-          //   validate: (sourceNode, targetNode, _sourceAnchor, targetAnchor) => {
-          //     if (['assignment', 'decision', 'startParallel', 'machineLearning', 'deepLearning', 'restService'].includes(targetNode.type)) {
+          //   message: '【开始】只允许1个输出',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
+          //     if (edges.length >= 1) {
+          //       return false;
+          //     } else {
+          //       return true;
+          //     }
+          //   },
+          // },
+          // {
+          //   message: '输出不允许连接输出',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     if (targetAnchor.type === 'incomming') {
           //       return true;
           //     } else {
           //       return false;

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import endParallel from './endParallel.vue';
 import { randomNumber } from '@/utils/index.js';
-let nodeNameZh = 'FM训练';
+let nodeNameZh = '';
 
 export default function registerConnect(lf) {
   lf.register('endParallel', ({ HtmlNode, HtmlNodeModel }) => {
@@ -85,36 +85,26 @@ export default function registerConnect(lf) {
           //     }
           //   },
           // },
-          {
-            message: '输入不允许连接输入',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return sourceAnchor.type === 'outgoing';
-            },
-          },
+          // {
+          //   message: '输入不允许连接输入',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return sourceAnchor.type === 'outgoing';
+          //   },
+          // },
         ];
         this.sourceRules = [
-          {
-            message: `【${nodeNameZh}】只允许1个输出`,
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
-              if (edges.length >= 1) return false;
-              return true;
-            },
-          },
-          {
-            message: '输出不允许连接输出',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return targetAnchor.type === 'incomming';
-            },
-          },
           // {
-          //   message: `【${nodeNameZh}】可连接向量召回、协同过滤、swing推荐、原生服务、连接器`,
-          //   validate: (sourceNode, targetNode, _sourceAnchor, targetAnchor) => {
-          //     if (['assignment', 'decision', 'startParallel', 'machineLearning', 'deepLearning', 'restService'].includes(targetNode.type)) {
-          //       return true;
-          //     } else {
-          //       return false;
-          //     }
+          //   message: `【${nodeNameZh}】只允许1个输出`,
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
+          //     if (edges.length >= 1) return false;
+          //     return true;
+          //   },
+          // },
+          // {
+          //   message: '输出不允许连接输出',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return targetAnchor.type === 'incomming';
           //   },
           // },
         ];
