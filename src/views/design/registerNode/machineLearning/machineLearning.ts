@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue';
 import machineLearning from './machineLearning.vue';
 import { randomNumber } from '@/utils/index';
-let nodeNameZh = '节点2-1';
+let nodeNameZh = '';
 
 export default function registerConnect(lf) {
   lf.register('machineLearning', ({ HtmlNode, HtmlNodeModel }) => {
@@ -71,40 +71,40 @@ export default function registerConnect(lf) {
         this.height = height;
         this.radius = 50;
         this.targetRules = [
-          {
-            message: `【${nodeNameZh}】只允许一个输入`,
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeIncomingEdge(targetNode.id);
-              if (edges.length >= 1) {
-                return false;
-              } else {
-                return true;
-              }
-            },
-          },
-          {
-            message: '输入不允许连接输入',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return sourceAnchor.type === 'outgoing';
-            },
-          },
+          // {
+          //   message: `【${nodeNameZh}】只允许一个输入`,
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeIncomingEdge(targetNode.id);
+          //     if (edges.length >= 1) {
+          //       return false;
+          //     } else {
+          //       return true;
+          //     }
+          //   },
+          // },
+          // {
+          //   message: '输入不允许连接输入',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return sourceAnchor.type === 'outgoing';
+          //   },
+          // },
         ];
 
         this.sourceRules = [
-          {
-            message: `【${nodeNameZh}】只允许1个输出`,
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
-              if (edges.length >= 1) return false;
-              return true;
-            },
-          },
-          {
-            message: '输出不允许连接输出',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return targetAnchor.type === 'incomming';
-            },
-          },
+          // {
+          //   message: `【${nodeNameZh}】只允许1个输出`,
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
+          //     if (edges.length >= 1) return false;
+          //     return true;
+          //   },
+          // },
+          // {
+          //   message: '输出不允许连接输出',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return targetAnchor.type === 'incomming';
+          //   },
+          // },
         ];
       }
     }

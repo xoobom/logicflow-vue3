@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue';
 import endParallel from './endParallel.vue';
 import { randomNumber } from '@/utils/index';
-let nodeNameZh = '并行结束';
+let nodeNameZh = '';
 
 export default function registerConnect(lf) {
   lf.register('endParallel', ({ HtmlNode, HtmlNodeModel }) => {
@@ -71,28 +71,28 @@ export default function registerConnect(lf) {
         this.height = height;
         this.radius = 50;
         this.targetRules = [
-          {
-            message: '输入不允许连接输入',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return sourceAnchor.type === 'outgoing';
-            },
-          },
+          // {
+          //   message: '输入不允许连接输入',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return sourceAnchor.type === 'outgoing';
+          //   },
+          // },
         ];
         this.sourceRules = [
-          {
-            message: `【${nodeNameZh}】只允许1个输出`,
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
-              if (edges.length >= 1) return false;
-              return true;
-            },
-          },
-          {
-            message: '输出不允许连接输出',
-            validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
-              return targetAnchor.type === 'incomming';
-            },
-          },
+          // {
+          //   message: `【${nodeNameZh}】只允许1个输出`,
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     const edges = this.graphModel.getNodeOutgoingEdge(sourceNode.id);
+          //     if (edges.length >= 1) return false;
+          //     return true;
+          //   },
+          // },
+          // {
+          //   message: '输出不允许连接输出',
+          //   validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+          //     return targetAnchor.type === 'incomming';
+          //   },
+          // },
         ];
       }
     }
