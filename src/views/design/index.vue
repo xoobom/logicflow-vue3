@@ -18,7 +18,7 @@
 import { ref, onMounted, reactive } from 'vue';
 import LogicFlow from '@logicflow/core';
 import { Menu, Snapshot, MiniMap } from '@logicflow/extension';
-import '@logicflow/core/dist/style/index.css';
+import '@logicflow/core/lib/style/index.css';
 import '@logicflow/extension/lib/style/index.css';
 import start from './registerNode/start/start.ts';
 import assignment from './registerNode/assignment/assignment.ts';
